@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "Sol Watch — 小Sol的小天才手表",
+  "short_name": "Sol Watch",
+  "version": "1.1.0",
+  "description": "在 ChatGPT 网页版显示每条消息的真实服务端时间（含 iOS 原生 App 发送的历史消息），并按会话锚点或每条消息把本地时间注入 prompt。",
+  "minimum_chrome_version": "111",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Sol Watch 设置",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*", "https://chat.openai.com/*"],
+      "js": [
+        "src/common/logger.js",
+        "src/common/time-format.js",
+        "src/common/metadata.js",
+        "src/content/settings.js",
+        "src/content/dom-queries.js",
+        "src/content/fiber-adapter.js",
+        "src/content/time-reader.js",
+        "src/content/metadata-hider.js",
+        "src/content/ui-overlay.js",
+        "src/content/session-anchor.js",
+        "src/content/sender-hook.js",
+        "src/content/ui-notice.js",
+        "src/content/main.js"
+      ],
+      "css": ["src/content/style.css"],
+      "run_at": "document_idle",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://chatgpt.com/*", "https://chat.openai.com/*"],
+      "js": ["src/content/settings-bridge.js"],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    }
+  ]
+}

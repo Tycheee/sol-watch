@@ -1,0 +1,38 @@
+MIT License
+
+Copyright (c) 2026 Sol Watch contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+第三方内容（Third-party content）说明：
+
+本项目包含对以下开源项目的改编/借鉴，相关归属与许可证声明见 THIRD_PARTY_NOTICES.md：
+
+1. chatgpt-timestamp-extension
+   Copyright (c) 2025 Hangzhi
+   https://github.com/Hangzhi/chatgpt-timestamp-extension
+   License: MIT — 本项目的新版 shell React Fiber 读取算法（fiber-adapter.js、
+   time-reader.js 的新版路径）改编自该项目。
+
+2. chatgpt-codex-temporal-awareness-extension
+   https://github.com/spolwort1970/chatgpt-codex-temporal-awareness-extension
+   License: 未提供 LICENSE 文件（默认保留版权）— 本项目仅借鉴其公开的
+   “发送前捕获-注入-恢复”设计思路，未复制其代码，且不采用其 localhost bridge。

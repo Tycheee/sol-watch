@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sol Watch — 集成验证夹具</title>
+  <link rel="stylesheet" href="../../src/content/style.css" />
+  <style>
+    body { font-family: -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif; margin: 16px; }
+    h1 { font-size: 16px; }
+    .layout { display: flex; gap: 16px; }
+    .left { flex: 1; }
+    .right { width: 380px; }
+    #conversation { border: 1px solid #ddd; border-radius: 8px; padding: 12px; min-height: 260px; background: #fafafa; }
+    .turn { margin: 10px 0; padding: 8px 10px; border-radius: 8px; background: #fff; border: 1px solid #e8e8e8; }
+    .turn .bubble { white-space: pre-wrap; }
+    .turn .assistant { background: #f4f4f7; }
+    form#composer-form { display: flex; gap: 8px; margin-top: 12px; }
+    textarea#composer { flex: 1; min-height: 60px; }
+    .controls { margin: 12px 0; display: flex; flex-wrap: wrap; gap: 8px; }
+    .controls button { padding: 6px 12px; cursor: pointer; }
+    #results { border: 1px solid #ddd; border-radius: 8px; padding: 10px; font-size: 12px; max-height: 340px; overflow: auto; }
+    #results .pass { color: #1a7f37; }
+    #results .fail { color: #c62828; }
+    #solwatch-trace, #dosend-log { font-size: 11px; background: #111; color: #8f9bb3; padding: 8px; border-radius: 6px; max-height: 180px; overflow: auto; white-space: pre-wrap; }
+    .summary { font-size: 14px; font-weight: bold; margin: 8px 0; }
+  </style>
+</head>
+<body>
+  <h1>Sol Watch — 集成验证夹具（file:// 直接打开）</h1>
+  <!-- 会话 id 兜底：file:// 下 URL 无 /c/<id>，用 DOM 属性提供（真实站点走 URL） -->
+  <div id="conv-id-holder" data-conversation-id="c1" hidden></div>
+
+  <div class="layout">
+    <div class="left">
+      <div id="conversation"></div>
+      <form id="composer-form">
+        <textarea id="composer" placeholder="输入消息…（Shift+Enter 换行）"></textarea>
+        <button id="send-btn" type="submit">发送</button>
+      </form>
+      <div class="controls">
+        <button id="btn-history" type="button">history</button>
+        <button id="btn-send" type="button">send(click)</button>
+        <button id="btn-enter" type="button">send(enter)</button>
+        <button id="btn-shift-enter" type="button">shift+enter</button>
+        <button id="btn-debug" type="button">debug line</button>
+        <button id="btn-session" type="button">send mode: session</button>
+        <button id="btn-mode-always" type="button">send mode: always</button>
+        <button id="btn-mode-off" type="button">send mode: off</button>
+        <button id="btn-assistant" type="button">assistant toggle</button>
+        <button id="btn-format" type="button">12/24h</button>
+        <button id="btn-copy" type="button">copy strip</button>
+        <button id="btn-retry" type="button">retry/resend</button>
+        <button id="btn-stream" type="button">streaming</button>
+        <button id="btn-spa" type="button">spa switch</button>
+        <button id="btn-regen" type="button">regenerate</button>
+        <button id="btn-empty" type="button">empty</button>
+        <button id="btn-reset-fixture" type="button">reset fixture</button>
+      </div>
+      <p id="summary" class="summary"></p>
+    </div>
+    <div class="right">
+      <h3>结果</h3>
+      <div id="results"></div>
+      <h3>发送 payload 日志</h3>
+      <div id="dosend-log"></div>
+      <h3>SolWatch 调试轨迹</h3>
+      <div id="solwatch-trace"></div>
+    </div>
+  </div>
+
+  <script src="chrome-stub.js"></script>
+  <script src="../../src/common/logger.js"></script>
+  <script src="../../src/common/time-format.js"></script>
+  <script src="../../src/common/metadata.js"></script>
+  <script src="../../src/content/settings.js"></script>
+  <script src="../../src/content/dom-queries.js"></script>
+  <script src="../../src/content/fiber-adapter.js"></script>
+  <script src="../../src/content/time-reader.js"></script>
+  <script src="../../src/content/metadata-hider.js"></script>
+  <script src="../../src/content/ui-overlay.js"></script>
+  <script src="../../src/content/session-anchor.js"></script>
+  <script src="../../src/content/sender-hook.js"></script>
+  <script src="../../src/content/ui-notice.js"></script>
+  <script src="../../src/content/main.js"></script>
+  <script src="fixture.js"></script>
+</body>
+</html>

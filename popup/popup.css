@@ -1,0 +1,59 @@
+/* Sol Watch — popup 样式 */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  width: 300px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+  font-size: 13px;
+  color: #1f2328;
+  background: #fbfbfc;
+}
+.wrap { padding: 14px 16px 16px; }
+h1 {
+  font-size: 15px;
+  margin: 0 0 4px;
+  color: #111;
+}
+h1 span { font-weight: normal; font-size: 11px; color: #8b8fa3; margin-left: 6px; }
+.group {
+  background: #fff;
+  border: 1px solid #e6e8ef;
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin: 12px 0;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px solid #f1f2f6;
+}
+.row:last-child { border-bottom: none; }
+.row label, .static-label { flex: 1; padding-right: 8px; }
+input[type="checkbox"] { width: 15px; height: 15px; accent-color: #5b5bd6; }
+select#sw-send-mode {
+  max-width: 160px;
+  padding: 4px 6px;
+  border: 1px solid #d8dbe3;
+  border-radius: 6px;
+  background: #fff;
+  color: #1f2328;
+  font: inherit;
+}
+.mode-hint { margin: 0 0 6px; }
+.radios { display: flex; gap: 10px; white-space: nowrap; }
+.radios label { display: inline-flex; align-items: center; gap: 3px; padding: 0; }
+.radios input { width: 13px; height: 13px; }
+button#btn-reset {
+  width: 100%;
+  padding: 8px 0;
+  border: 1px solid #d8dbe3;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #333;
+}
+button#btn-reset:hover { background: #f3f4f8; }
+.hint { font-size: 11px; color: #8b8fa3; line-height: 1.5; margin: 10px 0 0; }
+.group .hint.mode-hint { margin: 0 0 6px; }

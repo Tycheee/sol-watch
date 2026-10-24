@@ -1,0 +1,45 @@
+/* Sol Watch — 时间标签样式（低调、清晰，不影响复制正文） */
+.solwatch-time-label {
+  display: block;
+  font-size: 11px;
+  line-height: 1.4;
+  color: rgba(120, 120, 128, 0.85);
+  margin: 0 0 4px;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+  letter-spacing: 0.2px;
+}
+
+/* 元数据段隐藏后，正文段不再是 :first-child，去掉它的默认上边距，
+   避免气泡顶部多出一行空白（链接/图片消息常见） */
+[data-solwatch-first-visible] {
+  margin-top: 0 !important;
+}
+
+/* 发送失败提示：顶部居中、不接收鼠标事件，不遮挡输入框 */
+.solwatch-notice {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2147483647;
+  max-width: min(90vw, 460px);
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(32, 33, 36, 0.92);
+  color: #fff;
+  font: 12px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+  text-align: center;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  animation: solwatch-notice-in 0.16s ease-out;
+}
+
+@keyframes solwatch-notice-in {
+  from { opacity: 0; transform: translate(-50%, -4px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
